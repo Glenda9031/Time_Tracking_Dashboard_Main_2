@@ -19,7 +19,9 @@
     /* Cards */
     --bg: var(--neutral-2);
     --text: #fff;
-    --transition: 200ms ease-in-out;
+    --time: 200ms;
+    --ease: ease-in-out;
+    --snap: cubic-bezier(0.72, -0.12, 0.24, 1.14);
 }
 
 *,
@@ -45,8 +47,10 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: clamp(1rem, 3vw, 2rem);
+    justify-content: center;
 }
 
 .card {
@@ -90,15 +94,22 @@ h1 > span {
     border-radius: 1rem;
 }
 
+.timecard--bottom {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 1rem .5rem;
+}
+
 .card--avatar-bottom {
     --bg: var(--neutral-2);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    padding: 1rem .5rem;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+}
+
+.timecard--work {
+    --bg: var(--orange);
 }
 
 .btn {
@@ -112,8 +123,8 @@ h1 > span {
     cursor: pointer;
     box-shadow: 0 0 0 -.5rem var(--bg), 
                 0 0 0 -.5rem var(--avatar);
-    transition: box-shadow var(--transition), 
-                color var(--transition);
+    transition: box-shadow var(--time) var(--snap), 
+                color var(--time) var(--ease);
 }
 
 .btn:focus-within {
