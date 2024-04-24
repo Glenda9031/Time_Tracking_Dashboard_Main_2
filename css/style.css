@@ -50,16 +50,19 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     gap: clamp(1rem, 3vw, 2rem);
-    justify-content: center;
+}
+
+.container--timecards {
+    display: grid;
+    gap: clamp(1rem, 3vw, 2rem);
 }
 
 .card {
-    background-color: var(--neutral-2);
+    background-color: var(--bg);
     border-radius: 1rem;
 }
 
 .card > div {
-    border-radius: 1rem;
     background-color: var(--bg);
 }
 
@@ -67,21 +70,32 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex: 1 1 10%;
+}
+
+.card--avatar-top {
+    --bg: var(--avatar);
+    display: flex;
+    flex: 1 1 80%;
+    align-items: center;
+    gap: 1rem;
+
 }
 
 .avatar {
-    width: clamp(4rem, 7vw, 7.5rem);
-    border: 2px solid var(--text);
+    width: clamp(4rem, 4vw, 7.5rem);
+    border: .2rem solid #fff;
     border-radius: 100vw;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    flex: 1 1 20%;
+    flex: 0 1 20%;
 }
 
 h1 {
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     flex: 1 1 50%;
     font-weight: 300;
-    padding: 1rem;
+    --txt: var(--neutral-2);
 }
 
 h1 > span {
@@ -89,12 +103,55 @@ h1 > span {
     color: var(--neutral-4);
 }
 
+.card--lg {
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.timecard .card--lg {
+    bg: var(--neutral-2);
+}
+
+.card--sm {
+    padding: 1rem .5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.card--avatar .card--sm {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.card--avatar-bottom {
+    --bg: var(--neutral-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.timecard .card--sm {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.timecard--top {
+    position: relative;
+    overflow: hidden;
+}
+
+.card--top {
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
 .card--avatar-top {
     --bg: var(--avatar);
     border-radius: 1rem;
 }
 
-.timecard--bottom {
+.card--bottom {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 1rem .5rem;
@@ -108,7 +165,7 @@ h1 > span {
     gap: .5rem;
 }
 
-.timecard--work {
+.timecard-work {
     --bg: var(--orange);
 }
 
